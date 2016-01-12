@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'rap/css/index.css'%}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'rap/font-awesome/css/font-awesome.min.css' %}">
+		<link rel="shortcut icon" type="image/png" href="{% static 'rap/images/mic.png'%}"/>
+		<script src="{% static 'rap/js/jquery-2.1.0.min.js' %}"></script>
+		<script src="{% static 'rap/js/index.js' %}"></script>
+		<title>Rappz</title>
+	</head>
+	<body>
+		<section id="banner">
+			<a href=""><img src="{% static 'rap/images/rappz.png' %}"></a>
+		</section>
+		<nav>
+			<ul>
+				<li><a href="/">Home Page</a></li>
+				<li><a href="">Contact</a></li>
+				<li><a href="">Log in</a></li>
+			</ul>
+		</nav>
+
+		<section id="container">
+			<section id="search">
+				<section id="searchImg"><img src="{% static 'rap/images/search.png' %}"></section>
+				<section id="searchInput">
+					<form action="/results/" method="get">
+						<input id="searchValue" placeholder="Search" name="songName">
+					</form>
+				</section>
+			</section>
+			<section id="video">
+				<section id="player"></section>
+				<script> 
+			      var tag = document.createElement('script');
+			      tag.src = "https://www.youtube.com/iframe_api";
+			      var firstScriptTag = document.getElementsByTagName('script')[0];
+			      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+			      // 3. This function creates an <iframe> (and YouTube player)
+			      //    after the API code downloads.
+			      var player;
+			      function onYouTubeIframeAPIReady() {
+			        player = new YT.Player('player', {
+			          height: '340',
+			          width: '558',
+			          videoId: "{{playSong.url}}",
+			          events: {
+			            'onReady': onPlayerReady,
+			            'onStateChange': onPlayerStateChange
+			          }
+			        });
+			      }
+			      // 4. The API will call this function when the video player is ready.
+			      function onPlayerReady(event) {
+			        event.target.playVideo();
+			      }
+			      // 5. The API calls this function when the player's state changes.
+			      //    The function indicates that when playing a video (state=1),
+			      //    the player should play for six seconds and then stop.
+			      var done = false;
+			      function onPlayerStateChange(event) {
+			        if (event.data == YT.PlayerState.PLAYING && !done) {
+			        	done = true;
+			        }
+			      }
+			      function stopVideo() {
+			        player.stopVideo();
+			      }
+				</script>
+			</section>
+			<section id="latestSongs">
+				<h1><i class="fa fa-clock-o"></i> Latest</h1>
+				{% for song in last10%}
+					<section class="song">
+						<section class="songPic"><a href="/songs/{{song.url}}"><img class="songPic" src="{{ song.pic_url }}"><img style="width:30px; height:30px" class="playPic"></a></section>
+						<section class="songTitle"><a href="/songs/{{song.url}}"><span class="title">{{song.song_name}}</span></a></section>
+					</section>
+				{% endfor %}
+			</section>
+			<section id="songDetails">
+				<h1>{{playSong.song_name}}</h1>
+				<section id="info">
+                    <section id="share">
+                        <ul>
+                            <li><img id="facebook" style="width:40px; height:30px"></li>
+                            <li><img id="twitter" style="width:30px; height:30px"></li>
+                        </ul>
+
+                    </section>
+                    <section id="views">
+                       <i class="fa fa-eye"></i> <span id="viewCount">{{ viewCount }}</span>
+                    </section>
+                </section>
+				<section id="description"></section>
+			</section>
+		</section>
+		<footer>
+
+		</footer>
+	</body>
+</html>

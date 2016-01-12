@@ -1,0 +1,226 @@
+body {
+	margin: 0;
+	background-color: #F0F0F0;
+	font-family: Arial, Verdana;
+}
+#header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+}
+#banner {
+	background-image: url(../images/banner.png);
+	background-repeat: no-repeat;
+	background-position: top center;
+	width: 100%;
+	height: 146px;
+	margin: 0 auto;
+}
+
+#home {
+	margin-left: 80px;
+	margin-right: 20px;
+}
+#songs{
+	margin-right: 180px;
+}
+#magazine {
+	margin-right: 20px;
+}
+
+#container{
+	width: 90%;
+	margin: 0 auto;
+	background-color: white;
+}
+#player{
+	background-color: #F0F0F0;
+}
+#video{
+	margin-top: 20px;
+	background-color: #F0F0F0;	
+	width: 46%;
+	height: 350px;
+	margin-right: 0;
+	float: left;
+}
+#songDetails{
+	width: 46%;
+	background-color: white;
+	float: left;
+}
+#songDetails h1{
+	margin: 0;
+}
+#latestSongs{
+	margin-top: 20px;
+	width: 53%;
+	background-color: white;
+	float: right;
+}
+#latestSongs h1{
+	margin-left: 20px;
+	margin-top: 20px;
+	font-size: 24px;
+}
+#songDetails h1{
+	font-size: 24px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 10px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #F0F0F0;
+}
+.song{
+	height: 100px;
+	width: 100%;
+	clear: both;
+	margin-left: 20px;
+}
+.song:hover .title{
+    color: #408 !important;
+}
+.song:hover .playPic{
+    visibility: visible;
+}
+.songHover{
+	color: #408;
+}
+.songPic{
+	width: 20%;
+	float: left;
+}
+.songPic img{
+	height: 90px;
+	width: 120px;
+}
+.songTitle{
+	width: 70%;
+	float: left;
+}
+.songTitle a{
+	text-decoration: none;
+	color: black;
+}
+.title{
+	font-size: 14px;
+	font-weight: bold;
+}
+.title:hover{
+	color: #408;
+}
+#search{
+	width: 100%;
+	height: 50px;
+	background-color: #F0F0F0;
+	border-bottom: 1px solid black;
+}
+#searchImg {
+	float: left;
+	width: 50px;
+	height: 50px;
+}
+#searchImg img{
+	width: 30px;
+	height: 30px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+#searchInput{
+	height: 100%;
+	width: 60%;
+	float: left;
+}
+#searchValue{
+	width: 100%;
+	height: 40px;
+	margin-top: 2px;
+	color: black;
+	background-color: transparent;
+	font-size: 22px;
+	font-family: Calibri;
+	outline: 0;
+	border: none;
+	padding-top: 2px;
+}
+#searchValue:focus{
+	outline: 0;
+}
+#banner img{
+	width: 350px;
+	height: 80px;
+	margin-top: 50px;
+	margin-left: 15px;
+
+}
+nav{
+	height: 40px;
+	width: 100%;
+	background-color: black;
+}
+nav ul{
+	margin-top: 0;
+	margin-left: 30px;
+}
+nav ul li{
+	display: inline-block;
+	margin-top: 10px;
+	padding-right: 20px;
+}
+
+nav ul li a{
+	text-decoration: none;
+	color: white;
+	font-family: Calibri;
+	font-size: 20px;
+}
+nav ul li a:hover{
+	color: #408;
+	
+}
+.songPic{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.playPic{
+    content:url("../images/play.png");
+    position: absolute;
+    top: 50px;
+    left: 5px;
+    visibility: hidden;
+}
+#info{
+    height: 45px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#share{
+    float: left;
+    width: 50%;
+    margin-right: 0;
+}
+#share ul{
+    margin: 0;
+    padding-left: 0;
+    padding-top: 5px;
+}
+#share ul li{
+    display: inline-block;
+}
+#facebook{
+    content:url("../images/facebook.png");
+}
+#twitter{
+    content:url("../images/twitter.png");
+}
+#views{
+    margin-top: 13px;
+    margin-right: 5px;
+    float: right;
+    color: #888888;
+}
+#viewCount{
+    font-size: 20px;
+    color: #888888;
+}

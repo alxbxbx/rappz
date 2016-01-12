@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'rap/css/results.css'%}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'rap/font-awesome/css/font-awesome.min.css' %}">
+		<link rel="shortcut icon" type="image/png" href="{% static 'rap/images/mic.png'%}"/>
+		<script src="{% static 'rap/js/jquery-2.1.0.min.js' %}"></script>
+		<script src="{% static 'rap/js/index.js' %}"></script>
+		<title>Rappz</title>
+	</head>
+	<body>
+		<section id="banner">
+			<a href=""><img src="{% static 'rap/images/rappz.png' %}"></a>
+		</section>
+		<nav>
+			<ul>
+				<li><a href="/">Home Page</a></li>
+				<li><a href="">Contact</a></li>
+				<li><a href="">Log in</a></li>
+			</ul>
+		</nav>
+
+		<section id="container">
+			<section id="search">
+				<section id="searchImg"><img src="{% static 'rap/images/search.png' %}"></section>
+				<section id="searchInput">
+					<form action="/results/" method="get">
+						<input id="searchValue" placeholder="Search" name="songName" value="{{ search }}">
+					</form>
+				</section>
+			</section>
+            <section id="songResults">
+                {% if empty %}
+                    <h1>Nema rezultata</h1>
+                {% elif empty == False %}
+                    {% for song in songs %}
+                    	<section class="song">
+							<section class="songPic"><a href="/songs/{{song.url}}"><img class="songPic" src="{{ song.pic_url }}"><img style="width:30px; height:30px" class="playPic"></a></section>
+							<section class="songTitle"><a href="/songs/{{song.url}}"><span class="title">{{song.song_name}}</span></a></section>
+						</section>
+                    {% endfor %}
+                {% endif %}
+            </section>
+		</section>
+		<footer>
+
+		</footer>
+	</body>
+</html>
